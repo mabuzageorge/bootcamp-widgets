@@ -50,14 +50,11 @@
            <div class="input">
                <label for="amount">Amount of airtime available:</label>
                <input type="text" x-model="amount" id="amount">
+               <button x-on:click="calculate">Amount of airtime left</button>
            </div>
    
            <div class="message" x-text="message">
                Amount of airtime left displayed here...
-           </div>
-   
-           <div>
-               <button x-on:click="calculate">Amount of airtime left</button>
            </div>
        </div>
     
