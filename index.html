@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="greet.js"></script>
+    <script src="airtime.js"></script>
+    <script src="bill.js"></script>
+    <script src="game.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="greet-widget.js"></script>
+    <script src="airtime-widget.js"></script>
+    <script src="bill-widget.js"></script>
+    <script src="game-widget.js"></script>
+</head>
+<style>
+    body{
+        background-color: antiquewhite;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    h1{
+        text-align: center;
+    }
+    .message{
+        padding: 1em;
+        background-color: lawngreen;
+        margin-bottom: 1em;
+    }
+    .input>label{
+        display: inline-block;
+        width: 15em;
+        padding: 0.5em;
+        font-weight: bold ;
+    }
+    .input> input[type='text'] {
+        padding: 0.5em;
+        margin: 00.5em;
+    }
+   /* .widgets{
+        display: flex;
+    }*/
+    .widget{
+        flex: 1em;
+        border: 1px solid lightcoral;
+        margin: 1em;
+        padding: 1em;
+        border-radius: 0.5em;
+    }
+</style>
+<body>
+    <h1>My Bootcamp Alpine.JS widgets</h1>
+
+<div class="widgets"> 
+
+    
+        <div x-data="greetWidget" class="widget">
+            <h2>Greet Widget</h2>
+    
+            <div class="input">
+                <label for="name">Please enter your name:</label>
+                <input type="text" x-model="name" id="name">
+                <button x-on:click="greetMe">Greet</button>
+            </div>
+    
+            <div class="message" x-text="message">
+                You will be greeted here...
+            </div>
+        </div>
+    
+
+    
+        <div x-data="airtimeWidget" class="widget" >
+            <h2>Enough Airtime Widget</h2>
+   
+           <div class="input">
+               <label for="usage">Please enter airtime usage</label>
+               <input type="text" x-model="usage" id="usage">
+           </div>
+   
+           <div class="input">
+               <label for="amount">Amount of airtime available</label>
+               <input type="text" x-model="amount" id="amount">
+           </div>
+   
+           <div class="message" x-text="message">
+               Amount of airtime left displayed here...
+           </div>
+   
+           <div>
+               <button x-on:click="calculate">Amount of airtime left</button>
+           </div>
+   
+       </div>
+    
+
+    
+        <div x-data="billWidget" class="widget">
+            <h2>Total phone bill Widget</h2>
+    
+            <div class="input">
+                <label for="item">calls made and sms's sent</label>
+                <input type="text" x-model="item" id="item">
+                <button x-on:click="totalBill">Total phone bill</button>
+            </div>
+    
+            <div class="message" x-text="message">
+                Your total phone bill will displayed here...
+            </div>
+        </div>
+    
+
+    
+        <div x-data="gameWidget" class="widget">
+            <h2>Word game Widget</h2>
+    
+            <div class="input">
+                <label for="str">Please enter your phrase</label>
+                <input type="text" x-model="str" id="str">
+                <button x-on:click="longestWord">Find longest word</button>
+            </div>
+
+            <div class="input">
+                <label for="str">Please enter your phrase</label>
+                <input type="text" x-model="str" id="str">
+                <button x-on:click="shortestWord">Find shortest word</button>
+            </div>
+
+            <div class="input">
+                <label for="str">Please enter your phrase</label>
+                <input type="text" x-model="str" id="str">
+                <button x-on:click="wordLengths">Find word lengths</button>
+            </div>
+    
+            <div class="message" x-text="message">
+                You will find the longest word/shortest word/word length here...
+            </div>
+        </div>
+    
+  
+</div>
+</body>
+</html>
