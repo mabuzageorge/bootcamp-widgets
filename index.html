@@ -10,11 +10,13 @@
     <script src="airtime.js"></script>
     <script src="bill.js"></script>
     <script src="game.js"></script>
+    <script src="expensive.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="greet-widget.js"></script>
     <script src="airtime-widget.js"></script>
     <script src="bill-widget.js"></script>
     <script src="game-widget.js"></script>
+    <script src="expensive-widget.js"></script>
 </head>
 
 <body>
@@ -82,23 +84,47 @@
             <div class="input">
                 <label for="str">Please type your phrase here:</label>
                 <input type="text" x-model="str" id="str">
-                <button x-on:click="longestWord">Find longest word</button>
+               
             </div>
 
-            <div class="input">
-                <label for="str">Please type your phrase here:</label>
-                <input type="text" x-model="str" id="str">
+            <div class="button">
+                <button x-on:click="longestWord">Find  longest word</button>
                 <button x-on:click="shortestWord">Find shortest word</button>
-            </div>
-
-            <div class="input">
-                <label for="str">Please type your phrase here:</label>
-                <input type="text" x-model="str" id="str">
                 <button x-on:click="wordLengths">Find word lengths</button>
             </div>
     
             <div class="message" x-text="message">
                 You will find the longest word/shortest word/word length here...
+            </div>
+        </div>
+
+        <div x-data="{
+            itemList : '',
+            threshold : 20,
+            message : '',
+            findItemsOver20(){
+                this.message = findItemsOver20(this.itemList)
+            }, 
+            findItemsOver(){
+                this.message = findItemsOver20(this.itemList, this.threshold)
+            },
+        }" class="widget">
+            <h2>Expensive items Widget</h2>
+    
+            <div class="input">
+                <label for="itemList">Enter your fruits data here:</label>
+                <input type="text" x-model="itemList" x-model="threshold" id="itemList">
+               
+            </div>
+
+            <div class="button">
+                <button x-on:click="findItemsOver20">Find fruits over20</button>
+                <button x-on:click="findItemsOver">Find fruits over</button>
+                
+            </div>
+    
+            <div class="message" x-text="message">
+                You will find your fruits data here...
             </div>
         </div>
     

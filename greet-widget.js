@@ -1,7 +1,7 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('greetWidget', function() {
         return {
-            name : '',
+            itemList : '',
             message : '',
             greetMe(){
                 this.message = greet(this.name)
