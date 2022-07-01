@@ -98,35 +98,7 @@
             </div>
         </div>
 
-        <div x-data="{
-            itemList : '',
-            threshold : 20,
-            message : '',
-            findItemsOver20(){
-                this.message = findItemsOver20(this.itemList)
-            }, 
-            findItemsOver(){
-                this.message = findItemsOver20(this.itemList, this.threshold)
-            },
-        }" class="widget">
-            <h2>Expensive items Widget</h2>
     
-            <div class="input">
-                <label for="itemList">Enter your fruits data here:</label>
-                <input type="text" x-model="itemList" x-model="threshold" id="itemList">
-               
-            </div>
-
-            <div class="button">
-                <button x-on:click="findItemsOver20">Find fruits over20</button>
-                <button x-on:click="findItemsOver">Find fruits over</button>
-                
-            </div>
-    
-            <div class="message" x-text="message">
-                You will find your fruits data here...
-            </div>
-        </div>
     
   
 </div>
